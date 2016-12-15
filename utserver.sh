@@ -1,5 +1,13 @@
 #!/bin/bash
 
+
+USER="users"
+
+echo "utorrent settings"
+echo "================="
+echo
+echo "  User:       ${USER}"
+
 #
 # Copying config to work dir.
 #
@@ -15,4 +23,4 @@ fi
 #
 
 echo 'Starting utorrent server...'
-/opt/utorrent/utserver -settingspath /utorrent/ -configfile /utorrent/utserver.conf -logfile /utorrent/utserver.log
+exec su -pc "/opt/utorrent/utserver -settingspath /utorrent/ -configfile /utorrent/utserver.conf -logfile /utorrent/utserver.log" ${USER}
