@@ -1,20 +1,12 @@
 #!/bin/bash
 
-
-USER="users"
-
-echo "utorrent settings"
-echo "================="
-echo
-echo "  User:       ${USER}"
-
 #
-# Copying webui.zip to work dir.
+# Copying config to work dir.
 #
 
-if [[ ! -e /utorrent/webui.zip ]]; then
-    printf 'Copying webui.zip to /utorrent ...'
-    cp /opt/utorrent/webui.zip /utorrent/webui.zip
+if [[ ! -e /utorrent/utserver.conf ]]; then
+    printf 'Copying utserver.conf to /utorrent ...'
+    cp /opt/utorrent/utserver.conf /utorrent/utserver.conf
     echo "[DONE]"
 fi
 
@@ -23,4 +15,4 @@ fi
 #
 
 echo 'Starting utorrent server...'
-exec "/opt/utorrent/utserver -settingspath /utorrent/ -configfile opt/utorrent/utserver.conf -logfile /utorrent/utserver.log" ${USER}
+/opt/utorrent/utserver -settingspath /utorrent/ -configfile /utorrent/utserver.conf -logfile /utorrent/utserver.log
