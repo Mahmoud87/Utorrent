@@ -23,6 +23,11 @@ ADD http://download.ap.bittorrent.com/track/beta/endpoint/utserver/os/linux-x64-
 ADD utserver.sh /opt/utorrent/utserver.sh
 ADD utserver.conf /opt/utorrent/utserver.conf
 
+Run chown utorrent: /opt/utorrent/utserver.sh && \
+    chown utorrent: /opt/utorrent/utserver.conf && \
+    chmod 755 /opt/utorrent/utserver.sh && \
+    chmod 755 /opt/utorrent/utserver.conf
+
 #
 # Unpack utorrent and change permissions
 #
